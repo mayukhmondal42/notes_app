@@ -8,26 +8,41 @@ import api from "./api.js";
 import Footer from "./components/Footer";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem("user");
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [loading, setLoading] = useState(() => {
+    const saved = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+    return !saved && !!token;
+  });
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          setLoading(false);
-          return;
-        }
-        const { data } = await api.get("/users/me");
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+    api
+      .get("/users/me")
+      .then(({ data }) => {
         setUser(data);
-      } catch (err) {
+        localStorage.setItem("user", JSON.stringify(data));
+      })
+      .catch(() => {
         localStorage.removeItem("token");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchUser();
+        localStorage.removeItem("user");
+        setUser(null);
+      })
+      .finally(() => setLoading(false));
+
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
@@ -56,5 +71,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

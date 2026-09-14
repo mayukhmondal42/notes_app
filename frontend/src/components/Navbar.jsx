@@ -54,6 +54,7 @@ const Navbar = ({ user, setUser }) => {
             <button
               onClick={() => {
                 localStorage.removeItem("token");
+                localStorage.removeItem("user");
                 setUser(null);
                 navigate("/login");
               }}

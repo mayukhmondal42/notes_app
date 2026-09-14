@@ -18,7 +18,8 @@ const Register = ({ setUser }) => {
         password,
       });
       localStorage.setItem("token", data.token);
-      setUser(data);
+      localStorage.setItem("user", JSON.stringify(data.user || data));
+      setUser(data.user || data);
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Server error");
@@ -35,20 +36,17 @@ const Register = ({ setUser }) => {
 
       <div className="relative w-full max-w-[380px] rounded-[32px] p-8 bg-white/[0.08] backdrop-blur-[32px] border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.25)]">
         <div className="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-
         <h2 className="text-[26px] font-bold text-white tracking-tight">
           Create account
         </h2>
         <p className="text-white/50 text-[13px] mt-1 mb-7">
           Start your notes journey
         </p>
-
         {error && (
           <div className="mb-4 p-3 rounded-xl bg-red-500/15 border border-red-400/20 text-red-200 text-[13px] text-center">
             {error}
           </div>
         )}
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -78,7 +76,6 @@ const Register = ({ setUser }) => {
             Register
           </button>
         </form>
-
         <p className="mt-6 text-center text-white/50 text-[13px]">
           Already have an account?{" "}
           <Link
@@ -92,5 +89,4 @@ const Register = ({ setUser }) => {
     </div>
   );
 };
-
 export default Register;
