@@ -33,7 +33,7 @@ function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#08080c] flex items-center justify-center">
-        <div className="text-white/60 animate-pulse">Loading liquid...</div>
+        <div className="text-white/60 animate-pulse">Loading notes app...</div>
       </div>
     );
   }
