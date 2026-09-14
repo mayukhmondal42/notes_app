@@ -24,7 +24,7 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#08080c] flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="h-[calc(100vh-64px)] w-full bg-[#08080c] flex items-center justify-center p-4 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute -top-32 -left-32 w-[700px] h-[700px] bg-[#7c5cff]/35 rounded-full blur-[130px]" />
         <div className="absolute top-20 -right-32 w-[800px] h-[800px] bg-[#4a6cf7]/25 rounded-full blur-[140px]" />
@@ -38,7 +38,7 @@ const Login = ({ setUser }) => {
           Welcome back
         </h2>
         <p className="text-white/50 text-[13px] mt-1 mb-7">
-          Login to your liquid notes
+          Login to your notes
         </p>
 
         {error && (
