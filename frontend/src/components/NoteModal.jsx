@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api.js";
 
 const NoteModal = ({ isOpen, onClose, note, onSave }) => {
   const [title, setTitle] = useState("");
@@ -15,30 +15,22 @@ const NoteModal = ({ isOpen, onClose, note, onSave }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        setError("No authentication token found. Please log in");
-        return;
-      }
       const payload = { title, description };
-      const config = { headers: { Authorization: `Bearer ${token}` } };
+      let data;
       if (note) {
-        const { data } = await axios.put(
-          `/api/notes/${note._id}`,
-          payload,
-          config,
-        );
-        onSave(data);
+        const res = await api.put(`/notes/${note._id}`, payload);
+        data = res.data;
       } else {
-        const { data } = await axios.post("/api/notes", payload, config);
-        onSave(data);
+        const res = await api.post("/notes", payload);
+        data = res.data;
       }
       setTitle("");
       setDescription("");
       setError("");
+      onSave(data);
       onClose();
     } catch (err) {
-      setError("Failed to save note");
+      setError(err.response?.data?.message || "Failed to save note");
     }
   };
 
