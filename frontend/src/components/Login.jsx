@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from "../api.js";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -11,7 +11,7 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/users/login", {
+      const { data } = await api.post("/users/login", {
         email,
         password,
       });

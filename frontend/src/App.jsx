@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
-import axios from "axios";
+import api from "./api.js";
 import Footer from "./components/Footer";
 
 function App() {
@@ -19,9 +19,7 @@ function App() {
           setLoading(false);
           return;
         }
-        const { data } = await axios.get("/api/users/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const { data } = await api.get("/users/me");
         setUser(data);
       } catch (err) {
         localStorage.removeItem("token");
@@ -54,7 +52,7 @@ function App() {
         />
         <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
