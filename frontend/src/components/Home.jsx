@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api.js";
 import NoteModal from "./NoteModal";
 import { useLocation } from "react-router-dom";
 
@@ -12,12 +12,9 @@ const Home = () => {
 
   const fetchNotes = async () => {
     try {
-      const token = localStorage.getItem("token");
       const searchParams = new URLSearchParams(location.search);
       const search = searchParams.get("search") || "";
-      const { data } = await axios.get("/api/notes", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const { data } = await api.get("/notes");
       const filtered = search
         ? data.filter(
             (n) =>
@@ -46,11 +43,12 @@ const Home = () => {
   };
 
   const handleDelete = async (id) => {
-    const token = localStorage.getItem("token");
-    await axios.delete(`/api/notes/${id}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    setNotes(notes.filter((n) => n._id !== id));
+    try {
+      await api.delete(`/notes/${id}`);
+      setNotes(notes.filter((n) => n._id !== id));
+    } catch {
+      setError("Failed to delete note");
+    }
   };
 
   return (
