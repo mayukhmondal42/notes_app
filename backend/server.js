@@ -4,20 +4,14 @@ import cors from "cors";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/auth.js";
 import notesRoutes from "./routes/notes.js";
-import path from "path";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-
-const __dirname = path.resolve();
-
 app.use(cors({
-  origin: process.env.NODE_ENV === "production" 
-    ? true  
-    : "http://localhost:5173",
+  origin: ["http://localhost:5173", "https://notes-app-ca7t.onrender.com"],
   credentials: true,
 }));
 
@@ -26,14 +20,9 @@ app.use(express.json());
 app.use("/api/users", authRoutes);
 app.use("/api/notes", notesRoutes);
 
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "frontend/dist")));
-  
-  app.get("/{*splat}", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-}
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 
 connectDB().then(() => {
   app.listen(PORT, () => {
