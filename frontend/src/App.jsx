@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import axios from "axios";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -14,7 +15,10 @@ function App() {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        if (!token) return;
+        if (!token) {
+          setLoading(false);
+          return;
+        }
         const { data } = await axios.get("/api/users/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -27,15 +31,17 @@ function App() {
     };
     fetchUser();
   }, []);
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-xl text-white">Loading...</div>
+      <div className="min-h-screen bg-[#08080c] flex items-center justify-center">
+        <div className="text-white/60 animate-pulse">Loading liquid...</div>
       </div>
     );
   }
+
   return (
-    <div className="min-h-screen bg-gray-500">
+    <div className="min-h-screen bg-[#08080c]">
       <Navbar user={user} setUser={setUser} />
       <Routes>
         <Route
@@ -48,6 +54,7 @@ function App() {
         />
         <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
