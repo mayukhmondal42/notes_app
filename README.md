@@ -43,7 +43,7 @@ git clone https://github.com/mayukhmondal42/notes_app.git
 cd notes_app
 ```
 
-##2. Backend Setup
+### 2. Backend Setup
 ```
 cd backend
 npm install
