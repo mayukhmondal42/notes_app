@@ -34,29 +34,29 @@ notes_app/
 ```
 
 
-### 🚀 Getting Started
+## 🚀 Getting Started
 
-## 1. Clone the repo
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/mayukhmondal42/notes_app.git
 cd notes_app
 ```
 
-## 2. Backend Setup
+### 2. Backend Setup
 ```
 cd backend
 npm install
 npm run dev
 ```
-## Create `.env` in `backend/`:
+### Create `.env` in `backend/`:
 ```
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret_key
 PORT=5000
 ```
 
-## 3. Frontend Setup
+### 3. Frontend Setup
 ```
 cd frontend
 npm install
