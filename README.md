@@ -1,17 +1,3 @@
-Haa bujhe gechi! Tumi oi *healthcare* project er moto chaicho —
-
-Jeigulo command / code, seigulo sudhu grey box e thakbe ar pase *copy button* thakbe, ar baki lekha gulo normal dekhabe. Tai to?
-
-Tomar ager ta te problem hoyechilo karon tumi amar deoya puro box tar uporer ` ```markdown ` ar nicher ` ``` ` somet copy kore felechile. Oi duto copy korbe na.
-
-*Ebar ei niyome copy koro:*
-
-1. Nicher box ta kholo
-2. Sudhu `# 📝 Notes App` theke suru kore `Built with ❤️ by Mayukh Mondal` porjonto copy koro
-3. Uporer ` ```markdown ` ar nicher ` ``` ` ta copy korbe *NA*
-
----
-
 # 📝 Notes App
 
 A full-stack notes application to create, organize, search, and manage your personal notes — fast, simple, and secure.
@@ -63,20 +49,22 @@ npm install
 npm run dev
 ```
 ###Create `.env` in `backend/`:
-
+```
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret_key
 PORT=5000
+```
 
-3. Frontend Setup
-
+##3. Frontend Setup
+```
 cd frontend
 npm install
 npm start
+```
 
 App will run at: `http://localhost:3000`
 
-📸 Screenshots
+#📸 Screenshots
 
 <p align="center">
  <img src="screenshots/home.png" alt="Home Page" width="800" />
@@ -88,7 +76,7 @@ App will run at: `http://localhost:3000`
  <img src="screenshots/mobile-view.png" alt="Mobile View" width="400" />
 </p>
 
-🔮 Future Improvements
+#🔮 Future Improvements
 
 - [ ] Tags & Categories
 - [ ] Dark Mode
@@ -96,7 +84,7 @@ App will run at: `http://localhost:3000`
 - [ ] Cloud Sync
 - [ ] Reminder / To-Do inside notes
 
-🤝 Contributing
+#3🤝 Contributing
 
 1. Fork the repo
 2. Create your branch: `git checkout -b feature/AmazingFeature`
@@ -104,7 +92,7 @@ App will run at: `http://localhost:3000`
 4. Push: `git push origin feature/AmazingFeature`
 5. Open a Pull Request
 
-👨‍💻 Author
+#👨‍💻 Author
 
 *Mayukh Mondal*
 - GitHub: https://github.com/mayukhmondal42
