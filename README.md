@@ -25,12 +25,13 @@ Built with the MERN stack + Tailwind CSS for real-world CRUD, authentication, an
 
 ## 📁 Project Structure
 
-
+```
 notes_app/
 ├── backend/ # Express + MongoDB API
 ├── frontend/ # React + Tailwind CSS App
 ├── http://package.json
 └── http://README.md
+```
 
 
 ## 🚀 Getting Started
@@ -102,8 +103,3 @@ App will run at: `http://localhost:3000`
 If you like this project, give it a ⭐ on GitHub!
 
 Built with ❤️ by Mayukh Mondal
-
-
----
-
-Ebar paste korle tomar healthcare project er motoi dekhabe — command gulo te copy button asbe, baki gulo normal lekha hobe.
