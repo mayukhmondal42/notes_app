@@ -68,13 +68,13 @@ App will run at: `http://localhost:3000`
 #📸 Screenshots
 
 <p align="center">
- <img src="screenshots/home.png" alt="Home Page" width="800" />
+ <img src="Img/home.jpeg" alt="Home Page" width="800" />
 </p>
 <p align="center">
- <img src="screenshots/create-note.png" alt="Create Note" width="800" />
+ <img src="Img/create-note.jpeg" alt="Create Note" width="800" />
 </p>
 <p align="center">
- <img src="screenshots/mobile-view.png" alt="Mobile View" width="400" />
+ <img src="Img/mobile-view.jpeg" alt="Mobile View" width="400" />
 </p>
 
 #🔮 Future Improvements
