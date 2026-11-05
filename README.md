@@ -1,6 +1,16 @@
-Thik ache, ebar `Screenshots` section e `img` tag diye dilam. Tumi pore sudhu image file add korbe.
+Haa bujhe gechi! Tumi oi *healthcare* project er moto chaicho —
 
-*Puro README abar copy koro:*
+Jeigulo command / code, seigulo sudhu grey box e thakbe ar pase *copy button* thakbe, ar baki lekha gulo normal dekhabe. Tai to?
+
+Tomar ager ta te problem hoyechilo karon tumi amar deoya puro box tar uporer ` ```markdown ` ar nicher ` ``` ` somet copy kore felechile. Oi duto copy korbe na.
+
+*Ebar ei niyome copy koro:*
+
+1. Nicher box ta kholo
+2. Sudhu `# 📝 Notes App` theke suru kore `Built with ❤️ by Mayukh Mondal` porjonto copy koro
+3. Uporer ` ```markdown ` ar nicher ` ``` ` ta copy korbe *NA*
+
+---
 
 # 📝 Notes App
 
@@ -40,6 +50,7 @@ notes_app/
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
+
 ```bash
 git clone https://github.com/mayukhmondal42/notes_app.git
 cd notes_app
@@ -104,12 +115,6 @@ If you like this project, give it a ⭐ on GitHub!
 Built with ❤️ by Mayukh Mondal
 
 
-**Pore image add korar niyom:**
-1. GitHub e repo te `Add file > Upload files` koro
-2. Folder er naam dao: `screenshots`
-3. Vitore 3 ta image dao ei naam e:
- - `home.png`
- - `create-note.png`
- - `mobile-view.png`
+---
 
-Bas, automatically README te chole asbe.
+Ebar paste korle tomar healthcare project er motoi dekhabe — command gulo te copy button asbe, baki gulo normal lekha hobe.
